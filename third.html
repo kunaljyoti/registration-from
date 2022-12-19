@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+
+        *{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+        }
+
+.container{
+    background-color: #ecf6f5;
+    margin: 50px auto;
+    width: 405px;
+    height: auto;
+    border-radius: 10px;
+}
+form{
+    margin-left: 20px;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.btn{
+  width: 184px;
+  height: 34px;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-top: 12px;
+  border: none;
+  color: rgb(41, 41, 41);
+  background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
+  text-transform: uppercase;
+  font-size: 17px;
+  font-weight: bold;
+  transition: 0.8em;
+
+}
+.btn:hover{
+  background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
+ border: none;
+}
+.btn:focus { outline: none; }
+
+ </style>
+
+
+
+
+    
+</head>
+<body>
+    <div class="container">
+        <form name="myForm" action="final.html" onsubmit="return validateForm()" method="post">
+
+             <span> Passport size photograph</span><br>
+             <input type="file" id="file" onchange="return fileValidation()"><br><br>
+
+             <span>HSC mark sheet</span><br>
+             <input type="file" id="hsc" onchange="return hscValidation()"><br><br>
+
+             <span>SSC mark sheet</span><br>
+             <input type="file" id="ssc" onchange="return sscValidation()"><br><br>
+
+             <span>semesters mark sheet</span><br>
+             <input type="file" id="semistar" onchange="return semistarValidation()"><br><br>
+
+             <button type="submit"   value="submit" id="submit" class="btn">submit</button> 
+        </form>     
+    </div>
+
+    <script>
+        //   passport size photo
+        function validateForm() {
+        var input = document.getElementById('file');
+        var file = input.files;
+        if(file.length==0){
+            alert("Chose passport size photo !");
+            return false;
+        }
+     
+        var fileSize = Math.round((file[0].size / 1024));
+     
+        if (fileSize <= 4*1024) {
+            // alert("Uploaded Successful !");
+        } else {
+            alert(
+              "Error! Chose passport File too large");
+        }
+         
+
+        
+        //HSC mark sheet
+
+        var input = document.getElementById('hsc');
+        var file = input.files;
+        if(file.length==0){
+            alert("Chose HSC mark sheet !");
+            return false;
+        }
+     
+        var fileSize = Math.round((file[0].size / 1024));
+     
+        if (fileSize <= 4*1024) {
+            // alert("Uploaded Successful !");
+        } else {
+            alert(
+              "Error! HSC mark sheet File too large");
+        }
+
+        //SSC mark sheet
+
+        var input = document.getElementById('ssc');
+        var file = input.files;
+        if(file.length==0){
+            alert("Chosen SSC mark sheet !");
+            return false;
+        }
+     
+        var fileSize = Math.round((file[0].size / 1024));
+     
+        if (fileSize <= 4*1024) {
+            // alert("Uploaded Successful !");
+        } else {
+            alert(
+              "Error! SSC mark sheet File too large");
+        }
+
+
+        //All semesters mark sheet
+
+        var input = document.getElementById('semistar');
+        var file = input.files;
+        if(file.length==0){
+            alert("Chosen All semesters mark sheet !");
+            return false;
+        }
+     
+        var fileSize = Math.round((file[0].size / 1024));
+     
+        if (fileSize <= 10*1024) {
+            // alert("Uploaded Successful !");
+        } else {
+            alert(
+              "Error! All semesters mark sheet File too large");
+        }
+
+    }       
+
+
+    function fileValidation() {
+			var fileInput =document.getElementById('file');
+			var filePath = fileInput.value;
+			// Allowing file type
+			var allowedExtensions =/(\.docx|\.pdf)$/i;
+			if (!allowedExtensions.exec(filePath)) {
+				alert('Invalid file type');
+				fileInput.value = '';
+				return false;
+			}
+       
+        }
+        function hscValidation() {
+			var fileInput =document.getElementById('hsc');
+			var filePath = fileInput.value;
+			// Allowing file type
+			var allowedExtensions =/(\.docx|\.pdf)$/i;
+			if (!allowedExtensions.exec(filePath)) {
+				alert('Invalid file type');
+				fileInput.value = '';
+				return false;
+			}
+        }
+      
+       
+        function sscValidation() {
+			var fileInput =document.getElementById('ssc');
+			var filePath = fileInput.value;
+			// Allowing file type
+			var allowedExtensions =/(\.docx|\.pdf)$/i;
+			if (!allowedExtensions.exec(filePath)) {
+				alert('Invalid file type');
+				fileInput.value = '';
+				return false;
+			}
+         
+        }
+       
+        
+        function semistarValidation() {
+			var fileInput =document.getElementById('semistar');
+			var filePath = fileInput.value;
+			// Allowing file type
+			var allowedExtensions =/(\.docx|\.pdf)$/i;
+			if (!allowedExtensions.exec(filePath)) {
+				alert('Invalid file type');
+				fileInput.value = '';
+				return false;
+			}
+            
+        }
+
+        function validateForm()
+        {
+             // passport-size photo
+             var fileData=document.getElementById('file').value;
+             if(localStorage.getItem('Passport_photo')==null){
+             localStorage.setItem('Passport_photo','[]');
+             }
+             var oldData =JSON.parse(localStorage.getItem('Passport_photo'));
+             oldData.push(fileData);
+             localStorage.setItem('Passport_photo', JSON.stringify(oldData) );
+
+             //HSC mark sheet
+
+             var hscData=document.getElementById('hsc').value;
+             if(localStorage.getItem('HSC-mark-sheet')==null){
+             localStorage.setItem('HSC-mark-sheet','[]');
+             }
+             var oldData =JSON.parse(localStorage.getItem('HSC-mark-sheet'));
+             oldData.push(hscData);
+             localStorage.setItem('HSC-mark-sheet', JSON.stringify(oldData) );
+
+             //SSC mark sheet
+
+             var sscData=document.getElementById('ssc').value;
+             if(localStorage.getItem('SSC-mark-sheet')==null){
+             localStorage.setItem('SSC-mark-sheet','[]');
+             }
+             var oldData =JSON.parse(localStorage.getItem('SSC-mark-sheet'));
+             oldData.push(sscData);
+             localStorage.setItem('SSC-mark-sheet', JSON.stringify(oldData) );
+
+             //All semesters mark sheet
+
+             var semiSTar=document.getElementById('semistar').value;
+             if(localStorage.getItem('Semistar-mark-sheet')==null){
+             localStorage.setItem('Semistar-mark-sheet','[]');
+             }
+             var oldData =JSON.parse(localStorage.getItem('Semistar-mark-sheet'));
+             oldData.push(semiSTar);
+             localStorage.setItem('Semistar-mark-sheet', JSON.stringify(oldData) );
+
+        }
+
+    </script>
+</body>
+</html>
+
+

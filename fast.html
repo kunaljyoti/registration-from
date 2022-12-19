@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1">  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fast.css">
+    <script src="fast.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <form name="myForm" class="box" action="second.html" onsubmit="return validateForm()" method="post">
+            <div class="subcontainer"> 
+                <label>Name</label><br>
+                <input type="text" name="fname" class="fastinput"  id="fname" value="" placeholder="&nbsp;&nbsp;&nbsp;First" autocomplete="off" autofocus > &nbsp;&nbsp;&nbsp;
+                <input type="text" name="lname" class="fastinput" id="lname" placeholder="&nbsp;&nbsp;&nbsp;Last" autocomplete="off"  ><br>
+            </div>
+            <div class="subcontainer">
+               <label>Date of Birth</label><br>
+               <input type="date" name="dateofbirth" class="dobm" id="date_of_birth" autocomplete="off" ><br>
+            </div> 
+            <div class="subcontainer">
+                <label>Email</label><br>
+                <input type="email" name="email" class="dobm" id="email" placeholder="&nbsp;&nbsp;&nbsp;email" autocomplete="off"><br>
+            </div>   
+            <div class="subcontainer">
+                <label>Father's name</label><br>
+                <input type="text" name="ffname" class="fastinput" id="fathers_first_name" placeholder="&nbsp;&nbsp;&nbsp;fast" autocomplete="off" >&nbsp;&nbsp;&nbsp;
+                <input type="text" name="flname" class="fastinput" id="fathers_last_name" placeholder="&nbsp;&nbsp;&nbsp;Last" autocomplete="off" ><br>
+            </div>
+            <div class="subcontainer">
+                <label>Mother's name</label><br>
+                <input type="text" name="mfname" class="fastinput" id="mothers_first_name" placeholder="&nbsp;&nbsp;&nbsp;fast" autocomplete="off" >&nbsp;&nbsp;&nbsp;
+                <input type="text" name="mlname" class="fastinput" id="mothers_last_name" placeholder="&nbsp;&nbsp;&nbsp;Last" autocomplete="off" ><br>
+            </div>
+            <div class="subcontainer">
+                <label>Gender</label><br>
+                <input type="radio" class="gender" name="gender" id="gendermale" value="male" >
+                <span>M</span><br>
+                <input type="radio" class="gender" name="gender" id="genderfemale" value="female" >
+                <span>F</span><br>
+            </div>
+            <!-- 000000 -->
+            <div class="subcontainer">
+                <label>Nationality</label><br>
+                <input type="text" name="nationality" id="nationality" class="dobm" autocomplete="off" ><br>
+            </div>
+            <div class="subcontainer">
+                <label>Home address</label><br>
+                <input type="text" name="homeaddress" class="dobm" id="homeaddress" placeholder="&nbsp;&nbsp;&nbsp;street address" autocomplete="off" ><br>
+                <input type="text" name="city" class="fastinput"   id="city" placeholder="&nbsp;&nbsp;&nbsp;city" autocomplete="off" >&nbsp;&nbsp;&nbsp;
+                <input type="text" name="country" class="fastinput" id="country" placeholder="&nbsp;&nbsp;&nbsp;country" autocomplete="off" ><br>
+            </div>
+            <div class="subcontainer">
+                <label>Telephone-Home</label><br>
+                <input type="phonenumber" name="telephone" class="dobm" id="telephone" placeholder="&nbsp;&nbsp;&nbsp;### ### ####"  autocomplete="off" ><br>
+            </div>
+            <div class="subcontainer">
+                <label>Telephone-mobile</label><br>
+              <input type="telephone_mobile" name="mobile" class="dobm" id="mobile" placeholder="&nbsp;&nbsp;&nbsp;### ### ####" autocomplete="off" ><br>
+            </div>
+            <button type="submit" onclick="store()" value="submit" id="submit" class="btn">submit</button> 
+        </form>
+    </div>
+</body>
+</html>
